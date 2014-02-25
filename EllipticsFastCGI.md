@@ -5,7 +5,7 @@ Elliptics FastCGI proxy consists of the following sections that allow you to spe
   - pools - sets the name of thread pool which will serve;
 ```xml
 <pools>
-  <pool name="read" threads="4" queue="16"/><!--- It consists of 4 threads, each of which have all 16 queries -->
+  <pool name="read" threads="4" queue="16"/><!--- It consists of 4 threads, which have all 16 queries -->
 </pools>
 ```
   - handlers - define what requests in what pools will be processed;
@@ -31,8 +31,8 @@ The `dnet` section consists of the following sections:
 | Parameter | Description |
 |-----------|-------------|
 | die-limit | Sets how many live connections between Elliptics FastCGI proxy and Elliptics that to assume that the system is operable. But it is impossible make a record if the the system contains fewer connections because it works in read-only mode. |
-| base-port |  |
-| eblob_style_path | Path to the data server node. If the value is 1 that's eblob, else if the value 0. |
+| base-port | The value for Dnet base port. |
+| eblob_style_path |  If the value is 1 that's eblob, else if the value 0. |
 | write_chunk_size | Chunk size of the file for writing. If size is not specified, the file is written all at once. |
 | read_chunk_size | Chunk size of the file for reading. If size is not specified, the file is read all at once. |
 | log | It is the settings for file logger to elliptics. |
@@ -49,13 +49,9 @@ The log section includes the following parameters to create a logger:
 | Parameter | Description |
 |-----------|-------------|
 | path | Is a file path to logging. |
-| mask |  |
+| mask | Is a log-level. |
 | wait_timeout |	The time to wait for the operation complete. |
 |	reconnect_timeout | 	The timeout for pinging node. |
-|	no_route_list |	Do not request route table from remote nodes. | 
-|	mix_stats |	Mix states according to their weights before reading data. |
-|	no_csum |	Globally disable checksum verification and update. |
-|	randomize_states |	Randomize states for read requests. |
 
 ###<a name="daemon-log"></a>The daemon-logger component
 Defualts:
