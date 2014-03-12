@@ -31,7 +31,7 @@ The `dnet` section consists of the following sections:
 | Parameter | Description |
 |-----------|-------------|
 | die-limit | Sets how many live connections between Elliptics FastCGI proxy and Elliptics that to assume that the system is operable. But it is impossible make a record if the the system contains fewer connections because it works in read-only mode. |
-| base-port | The value for Dnet base port. |
+| base-port | The value for Dnet base port. Style specifying to a file path: if the value "1" - eblob, else - filesystem. |
 | eblob_style_path |  If the value is 1 that's eblob, else if the value 0. |
 | write_chunk_size | Chunk size of the file for writing. If size is not specified, the file is written all at once. |
 | read_chunk_size | Chunk size of the file for reading. If size is not specified, the file is read all at once. |
