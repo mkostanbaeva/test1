@@ -42,7 +42,7 @@ The `dnet` section consists of the following sections:
 | typemap | Typemap: the file extension determines the type of content. |
 | groups| Dnet groups. They are determined by a colon. |
 | replication-count | The number of copies that you want to record. |
-|	copies-num | The number of writes that are considered successful. |
+|	success-copies-num | The number of writes that are considered successful. |
 
 The log section includes the following parameters to create a logger:
 
