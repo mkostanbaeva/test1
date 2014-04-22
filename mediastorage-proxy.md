@@ -28,16 +28,16 @@ Configuration file consists of configurations the TheVoid and mediastorage-proxy
 ```json
 		"application" : {
                 "elliptics-log" : { 
-                        "path" : "/tmp/log/mediastorage/elliptics.log", A path to log-file. 
-                        "level" : 2 A log level (value can be from 0 to 5).
+                        "path" : "/tmp/log/mediastorage/elliptics.log", 
+                        "level" : 2
                 },
                 "proxy-log" : {   
-                        "path" : "/tmp/log/mediastorage/proxy.log", A path to log-file. 
-                        "level" : 2 A log level (value can be from 0 to 5).
+                        "path" : "/tmp/log/mediastorage/proxy.log", 
+                        "level" : 2 
                 },
                 "mastermind-log" : { 
-                        "path" : "/tmp/log/mediastorage/mastermind.log", A path to log-file. 
-                        "level" : 2 A log level (value can be from 0 to 5).
+                        "path" : "/tmp/log/mediastorage/mastermind.log", 
+                        "level" : 2 
                 },
                 "timeouts" : {  
                         "wait" : 30, A time to wait for the operation complete.
@@ -60,28 +60,32 @@ Configuration file consists of configurations the TheVoid and mediastorage-proxy
                         ],
                         "group-info-update-period" : 10 A time after which should be updated the information (this parameter in seconds). 
                 },
-                "die-limit" : 1, тоже что и в эллиптикс-фастсжай
+                "die-limit" : 1, 
                 "eblob-style-path" : true,
                 "direction-bit-num" : 16,
                 "base-port" : 1024,
-                "chunk-size" : { обязательный параметр
-                        "write" : 10, в мб
+                "chunk-size" : { 
+                        "write" : 10, 
                         "read" : 10
                 }
         }
 ```
 | Parameter | Description |
-|-----------|-------------|
-| elliptics-log | The Elliptics client logs |
-| proxy-log | The proxy logs |
-| mastermind-log | The libmastermind logs |
+|---------------|-------------|
+| elliptics-log | The Elliptics client logs. Should be set the path to the log-file and the log level (value can be from 0 to 5) |
+| proxy-log | The proxy logs. Should be set the path to the log-file and the log level (value can be from 0 to 5) |
+| mastermind-log | The libmastermind logs. Should be set the path to the log-file and the log level (value can be from 0 to 5) |
 | timeouts | The timeouts sittings |
 | cfg-flags | Configuration flags of the Elliptics client |
 | remotes | The nodes of Elliptics storage. A string address Cin the format - “host:port:family" |
-| elliptics-threads | Configuration of the Elliptics client threads |
+| elliptics-threads: <br/> - io-thread-num  <br/> - net-thread-num | Configuration of the Elliptics client threads. <br/> The number of IO threads in processing pool. <br/> The umber of threads in network processing pool. |
 | mastermind | Configuration for the libmastermaind.  Allows to communicate the mediastorage-proxy with the mastermind in Cocaine. Mastermind calculates the load on the nodes.  It lets say what the nodes are most loaded and where should be the load on nodes for write operations |
-| die-limit |  |
+| die-limit | Sets how many live connections between mediastorage-proxy and Elliptics that to assume that the system is operable. But it is impossible make a record if the the system contains fewer connections because it works in read-only mode |
+| eblob-style-path | If the value is 1 that's eblob, else - if the value 0 |
 | direction-bit-num |  |
-| base-port |  |
-| chunk-size |  |
+| base-port | The value for Dnet base port. Style specifying to a file path: if the value "1" - eblob, else - filesystem. |
+| chunk-size | A size of a single piece of data to be written or to be read. The size is specified in MB. It is a required parameter |
+
+###elliptics-threads
+
 
