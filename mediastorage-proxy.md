@@ -41,7 +41,7 @@ Configuration file consists of configurations the TheVoid and mediastorage-proxy
                 },
                 "timeouts" : {  
                         "wait" : 30, 
-                        "check" : 60 проверка роут листов
+                        "check" : 60 
                 },
                 "cfg-flags" : 4, 
                 "remotes" : [ 
@@ -75,7 +75,7 @@ Configuration file consists of configurations the TheVoid and mediastorage-proxy
 | elliptics-log | The Elliptics client logs. Should be set the path to the log-file and the log level (value can be from 0 to 5) |
 | proxy-log | The proxy logs. Should be set the path to the log-file and the log level (value can be from 0 to 5) |
 | mastermind-log | The libmastermind logs. Should be set the path to the log-file and the log level (value can be from 0 to 5) |
-| timeouts | The timeouts sittings |
+| [timeouts](#timeouts) | The timeouts sittings |
 | cfg-flags | Configuration flags of the Elliptics client |
 | remotes | The nodes of Elliptics storage. A string address in the format - “host:port:family" |
 | [elliptics-threads](#elliptics-threads) | Configuration of the Elliptics client threads  |
