@@ -62,7 +62,6 @@ Configuration file consists of configurations the TheVoid and mediastorage-proxy
                 },
                 "die-limit" : 1, 
                 "eblob-style-path" : true,
-                "direction-bit-num" : 16,
                 "base-port" : 1024,
                 "chunk-size" : { 
                         "write" : 10, 
@@ -82,7 +81,6 @@ Configuration file consists of configurations the TheVoid and mediastorage-proxy
 | [mastermind](#mastermind) | Configuration for the libmastermaind |
 | die-limit | Sets how many live connections between mediastorage-proxy and Elliptics that to assume that the system is operable. But it is impossible make a record if the the system contains fewer connections because it works in read-only mode |
 | eblob-style-path | If the value is 1 that's eblob, else - if the value 0 |
-| direction-bit-num |  |
 | base-port | The value for Dnet base port. Style specifying to a file path: if the value "1" - eblob, else - filesystem. |
 | chunk-size | A size of a single piece of data to be written or to be read. The size is specified in MB. It is a required parameter |
 
