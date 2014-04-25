@@ -1,4 +1,12 @@
 # API
+For work, you can use the following handlers:
+* [upload](#upload)
+* [get](#get)
+* [downloadinfo](#downloadinfo)
+* [ping and stat](#ping-and-stat)
+* [stat_log and stat-log](#stat_log-and-stat-log)
+* [cache](#cache)
+* [cache-update](#cache-update)
 
 ##hosts
 ###Production
@@ -16,8 +24,7 @@ The handler is used to upload a data. Used as follows - *hostname:port/upload-$n
 * *$namespace* - the name of your namespase,
 * *$filename* -  name of the key for your data.
 When you specify the namespace will be issued Authorization header, which should not forget to indicate -
-[more here.][]
-[more here.]: http://en.wikipedia.org/wiki/Basic_access_authentication 
+[more here](http://en.wikipedia.org/wiki/Basic_access_authentication). <br/>
 The proxy has no restrictions on the size of upload files (it uploads by pieces, as they come to the socket).
 
 Additional arguments (transmitted by GET):
@@ -86,8 +93,7 @@ In a response are coming your data.
 ##delete
 ###Description 
 The handler is used for deleting a data. Used as follows - *hostname:port/delete-$namespace/$group/$filename*, where is  *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. When you specify the namespace will be issued Authorization header, which should not forget to indicate -
-[more here.][]
-[more here.]: http://en.wikipedia.org/wiki/Basic_access_authentication 
+[more here](http://en.wikipedia.org/wiki/Basic_access_authentication). <br/>
 For namespace with a static group - *hostname:port/delete-$namespace/$filename*.
 
 ###HTTP response codes
@@ -120,7 +126,7 @@ Answer:
 <?xml version="1.0" encoding="utf-8"?><download-info><host>elisto35f.dev.yandex.net</host><path>/8/data-0.0:3940155250:4</path><region>-1</region></download-info>
 ```
 
-##ping & stat
+##ping and stat
 ###Description 
 Lets you know about the operability proxy. Used as follows - *hostname:port/ping* or *hostname:port/stat*. 
 
@@ -128,7 +134,7 @@ Lets you know about the operability proxy. Used as follows - *hostname:port/ping
 200 - Ok, <br/>
 5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
 
-##stat_log & stat-log
+##stat_log and stat-log
 ###Description
 Displays an information for all connected nodes. Used as follows - *:port/stat_log* or *hostname:port/stat-log*.
 
