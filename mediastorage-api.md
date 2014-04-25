@@ -2,12 +2,12 @@
 
 ##hosts
 ###Production
-The balancer open out for reading operation (the get handler only) - `storage.mds.yandex.net:80`.
-The internal balancer for reading operation (the get handler only) - `storage-int.mds.yandex.net:80`.
+The balancer open out for reading operation (the get handler only) - `storage.mds.yandex.net:80`.<br/>
+The internal balancer for reading operation (the get handler only) - `storage-int.mds.yandex.net:80`.<br/>
 The internal balancer for writing operation (the upload, delete, downloadinfo handlers) - `storage-int.mds.yandex.net:12000`.
 
 ###Testing
-The host for reading operation (the get handler only) - `storage.mdst.yandex.net:80`.
+The host for reading operation (the get handler only) - `storage.mdst.yandex.net:80`.<br/>
 The host for writing operation (the upload, delete, downloadinfo handlers) - `storage-int.mdst.yandex.net:12000`.
 
 ##upload 
@@ -24,7 +24,7 @@ Additional arguments (transmitted by GET):
 * `offset` - an offset with which data should be written, you can use to overwrite the piece of file;
 * `embed` or `embed_timestamp` and `timestamp` - the `embed` flag is used to store meta-information together with a data; from meta-information supported now only `timestamp`.
 
-###Http response codes
+###HTTP response codes
 200 - Ok (response will be similar to that in Example), <br/>
 400 - the request cannot be fulfilled due to bad syntax, <br/>
 401 - forgot to specify a title for the authorization <br/>
@@ -67,7 +67,7 @@ Additional arguments (transmitted by GET):
 * `size` - a size of the data chunk to be read;
 * `embed` and `embed_timestamp` - flag is used to indicate that the data was written with the meta-information (now is a legacy -  proxy may determine this fact for all new written data).
 
-###Http response codes
+###HTTP response codes
 200 - Ok, <br/>
 404 - no data was found for this key, <br/>
 5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
@@ -90,7 +90,7 @@ The handler is used for deleting a data. Used as follows - *hostname:port/delete
 [more here.]: http://en.wikipedia.org/wiki/Basic_access_authentication 
 For namespace with a static group - *hostname:port/delete-$namespace/$filename*.
 
-###Http response codes
+###HTTP response codes
 200 - Ok, <br/>
 404 - no data was found for this key, <br/>
 5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
@@ -105,7 +105,7 @@ curl -H "Authorization: Basic ZGVmYXVsdDoxMjM=" "http://storage-int.mds.yandex.n
 ###Description 
 The handler is used to find out where the data are physically located. Used as follows - *hostname:port/downloadinfo-$namespace/$group/$filename*, where is  *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. For namespace with a static group - *hostname:port/downloadinfo-$namespace/$filename*.
 
-###Http response codes
+###HTTP response codes
 200 - Ok, <br/>
 404 - no data was found for this key, <br/>
 5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
@@ -124,7 +124,7 @@ Answer:
 ###Description 
 Lets you know about the operability proxy. Used as follows - *hostname:port/ping* or *hostname:port/stat*. 
 
-###Http response codes
+###HTTP response codes
 200 - Ok, <br/>
 5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
 
@@ -132,7 +132,7 @@ Lets you know about the operability proxy. Used as follows - *hostname:port/ping
 ###Description
 Displays an information for all connected nodes. Used as follows - *:port/stat_log* or *hostname:port/stat-log*.
 
-###Http response codes
+###HTTP response codes
 200 - Ok, <br/>
 5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
 
@@ -159,7 +159,7 @@ The types of caches are:
 * *cache-groups* - a groups used for cache mastermind storage;
 * *namespaces-settings* - a configuration namespaces, which is working proxy now.
 
-###Http response codes
+###HTTP response codes
 200 - Ok, <br/>
 5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
 
@@ -252,7 +252,7 @@ Answer:
 ###Description 
 Makes proxy to immediately update information from mastermind, without waiting for the timeout. If you pass an argument with-namespaces, then the proxy also will be update information about the namespaces (just as it does at the start).
 
-###Http response codes
+###HTTP response codes
 200 - Ok, <br/>
 5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
 
