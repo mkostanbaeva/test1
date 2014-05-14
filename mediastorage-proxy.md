@@ -1,8 +1,8 @@
-#Configuration Mediastorage-proxy
+#Mediastorage-proxy сonfiguration 
 
-Configuration file consists of configurations the TheVoid and mediastorage-proxy sittings in JSON format. 
+Configuration file consists of configurations TheVoid and mediastorage-proxy sittings. It has JSON format. 
 
-##The TheVoid settings
+##TheVoid settings
 ```json
         "endpoints": [
                 "unix:/tmp/thevoid/mediastorage-proxy.sock",
@@ -18,12 +18,12 @@ Configuration file consists of configurations the TheVoid and mediastorage-proxy
 ```
 | Parameter | Description |
 |-----------|-------------|
-| endpoints | A sockets that will listen proxy. Can set a unix-sockets and a tcp-sockets |
-| backlog | A queue to each socket |
+| endpoints | The sockets that proxy listens. Unix and tcp sockets can be used. |
+| backlog | Size of queue for each socket. |
 | safe_mode | If the value is TRUE this option fixes all uncaught errors and returns 500 |
-| threads | The number of streams which handles connection |
-| buffer_size | The buffer size of matching packages |
-| monitor-port | The port value for monitoring proxy |
+| threads | Number of threads to handle connection. |
+| buffer_size | Buffer size of matching packages. |
+| monitor-port | Port value for monitoring proxy. |
 ##Mediastorage-proxy settings
 ```json
 		"application" : {
@@ -71,18 +71,18 @@ Configuration file consists of configurations the TheVoid and mediastorage-proxy
 ```
 | Parameter | Description |
 |---------------|-------------|
-| elliptics-log | The Elliptics client logs. Should be set the path to the log-file and the log level (value can be from 0 to 5) |
-| proxy-log | The proxy logs. Should be set the path to the log-file and the log level (value can be from 0 to 5) |
-| mastermind-log | The libmastermind logs. Should be set the path to the log-file and the log level (value can be from 0 to 5) |
-| [timeouts](#timeouts) | The timeouts sittings |
-| cfg-flags | Configuration flags of the Elliptics client |
-| remotes | The nodes of Elliptics storage. A string address in the format - “host:port:family" |
-| [elliptics-threads](#elliptics-threads) | Configuration of the Elliptics client threads  |
-| [mastermind](#mastermind) | Configuration for the libmastermaind |
-| die-limit | Sets how many live connections between mediastorage-proxy and Elliptics that to assume that the system is operable. But it is impossible make a record if the the system contains fewer connections because it works in read-only mode |
-| eblob-style-path | If the value is 1 that's eblob, else - if the value 0 |
+| elliptics-log | The Elliptics client logs. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
+| proxy-log | The proxy logs. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
+| mastermind-log | The *libmastermind logs*. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
+| [timeouts](#timeouts) | The timeouts sittings. |
+| cfg-flags | Configuration fldoiags of the Elliptics client. |
+| remotes | The nodes of Elliptics storage. A string address in the format - “host:port:family". |
+| [elliptics-threads](#elliptics-threads) | Configuration of the Elliptics client threads.  |
+| [mastermind](#mastermind) | Configuration for the libmastermind. |
+| die-limit | Sets how many live connections between Mediastorage-proxy and Elliptics that to assume that the system is operable. But it is impossible make a record if the the system contains fewer connections because it works in read-only mode. |
+| eblob-style-path | If the value is 1 that's eblob, else - if the value 0. |
 | base-port | The value for Dnet base port. Style specifying to a file path: if the value "1" - eblob, else - filesystem. |
-| chunk-size | A size of a single piece of data to be written or to be read. The size is specified in MB. It is a required parameter |
+| chunk-size | A size of a single piece of data to be written or to be read. The size is specified in MB. It is a required parameter. |
 
 ###timeouts
 Allow you to override at runtime the previous values for timeouts.
