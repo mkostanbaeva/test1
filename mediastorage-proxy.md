@@ -71,9 +71,7 @@ Configuration file consists of configurations TheVoid and mediastorage-proxy sit
 ```
 | Parameter | Description |
 |---------------|-------------|
-| elliptics-log | The Elliptics client logs. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
-| proxy-log | The proxy logs. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
-| mastermind-log | The *libmastermind logs*. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
+| elliptics-log </br> proxy-log  </br> mastermind-log | There are Elliptics client, proxy and *libmastermind* logs. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
 | [timeouts](#timeouts) | The timeouts sittings. |
 | cfg-flags | Configuration fldoiags of the Elliptics client. |
 | remotes | The nodes of Elliptics storage. A string address in the format - “host:port:family". |
