@@ -20,7 +20,7 @@ Configuration file consists of configurations TheVoid and mediastorage-proxy set
 |-----------|-------------|
 | endpoints | The sockets that proxy listens. Unix and tcp sockets can be used. |
 | backlog | Size of queue for each socket. |
-| safe_mode | If the value is TRUE this option fixes all uncaught errors and returns 500 |
+| safe_mode | This option catches all uncaught errors and return 500 code of error, if the value this parameter is TRUE. |
 | threads | Number of threads to handle connection. |
 | buffer_size | Buffer size of matching packages. |
 | monitor-port | Port value for monitoring proxy. |
