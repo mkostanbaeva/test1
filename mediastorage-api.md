@@ -1,5 +1,5 @@
 # API
-For work, you can use the following handlers:
+For work, you can use the following handle:
 * [upload](#upload)
 * [get](#get)
 * [downloadinfo](#downloadinfo)
@@ -10,17 +10,17 @@ For work, you can use the following handlers:
 
 ##hosts
 ###Production
-The balancer open out for reading operation (the get handler only) - `storage.mds.yandex.net:80`.<br/>
-The internal balancer for reading operation (the get handler only) - `storage-int.mds.yandex.net:80`.<br/>
-The internal balancer for writing operation (the upload, delete, downloadinfo handlers) - `storage-int.mds.yandex.net:12000`.
+The balancer open out for reading operation (the get handle only) - `storage.mds.yandex.net:80`.<br/>
+The internal balancer for reading operation (the get handle only) - `storage-int.mds.yandex.net:80`.<br/>
+The internal balancer for writing operation (the upload, delete, downloadinfo handle) - `storage-int.mds.yandex.net:12000`.
 
 ###Testing
-The host for reading operation (the get handler only) - `storage.mdst.yandex.net:80`.<br/>
-The host for writing operation (the upload, delete, downloadinfo handlers) - `storage-int.mdst.yandex.net:12000`.
+The host for reading operation (the get handle only) - `storage.mdst.yandex.net:80`.<br/>
+The host for writing operation (the upload, delete, downloadinfo handle) - `storage-int.mdst.yandex.net:12000`.
 
 ##upload 
 ###Description
-The handler is used to upload a data. Used as follows - *hostname:port/upload-$namespace/$filename* and a data will be transmist by post. Where are: 
+Handle is used to upload a data. Used as follows - *hostname:port/upload-$namespace/$filename* and a data will be transmist by post. Where are: 
 * *$namespace* - the name of your namespase,
 * *$filename* -  name of the key for your data.
 When you specify the namespace will be issued Authorization header, which should not forget to indicate -
@@ -67,7 +67,7 @@ Should pay attention to:
 
 ##get
 ###Description 
-The handler is used for reading a data. Used as follows - *hostname:port/get-$namespace/$group/$filename*, where is *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. For namespace with a static group - *hostname:port/get-$namespace/$filename*.
+Handle is used for reading a data. Used as follows - *hostname:port/get-$namespace/$group/$filename*, where is *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. For namespace with a static group - *hostname:port/get-$namespace/$filename*.
 
 Additional arguments (transmitted by GET):
 * `offset` - an offset with which data should be reading;
@@ -92,7 +92,7 @@ In a response are coming your data.
 
 ##delete
 ###Description 
-The handler is used for deleting a data. Used as follows - *hostname:port/delete-$namespace/$group/$filename*, where is  *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. When you specify the namespace will be issued Authorization header, which should not forget to indicate -
+Handle is used for deleting a data. Used as follows - *hostname:port/delete-$namespace/$group/$filename*, where is  *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. When you specify the namespace will be issued Authorization header, which should not forget to indicate -
 [more here](http://en.wikipedia.org/wiki/Basic_access_authentication). <br/>
 For namespace with a static group - *hostname:port/delete-$namespace/$filename*.
 
@@ -109,7 +109,7 @@ curl -H "Authorization: Basic ZGVmYXVsdDoxMjM=" "http://storage-int.mds.yandex.n
 
 ##downloadinfo
 ###Description 
-The handler is used to find out where the data are physically located. Used as follows - *hostname:port/downloadinfo-$namespace/$group/$filename*, where is  *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. For namespace with a static group - *hostname:port/downloadinfo-$namespace/$filename*.
+Handle is used to find out where the data are physically located. Used as follows - *hostname:port/downloadinfo-$namespace/$group/$filename*, where is  *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. For namespace with a static group - *hostname:port/downloadinfo-$namespace/$filename*.
 
 ###HTTP response codes
 200 - Ok, <br/>
