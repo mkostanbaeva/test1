@@ -1,12 +1,15 @@
 # API
 For work, you can use the following handle:
-* [upload](#upload)
-* [get](#get)
-* [downloadinfo](#downloadinfo)
-* [ping and stat](#ping-and-stat)
-* [stat_log and stat-log](#stat_log-and-stat-log)
-* [cache](#cache)
-* [cache-update](#cache-update)
+
+| Handle | Description |
+|-----------|-------------|
+| [upload](#upload) | Is used to upload a data. |
+| [get](#get) | Is used for reading a data.  |
+| [downloadinfo](#downloadinfo) |  |
+| [ping and stat](#ping-and-stat) | Lets you know about the operability proxy. |
+| [stat_log and stat-log](#stat_log-and-stat-log) |  |
+| [cache](#cache) | Shows the information received from the proxy mastermind and cashing in themselves. |
+| [cache-update](#cache-update) | Makes proxy to immediately update information from mastermind, without waiting for the timeout. |
 
 ##hosts
 ###Production
