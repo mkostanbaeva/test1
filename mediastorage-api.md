@@ -5,9 +5,10 @@ For work, you can use the following handle:
 |-----------|-------------|
 | [upload](#upload) | Is used to upload a data. |
 | [get](#get) | Is used for reading a data.  |
-| [downloadinfo](#downloadinfo) |  |
+| [delete](#delete)| Is used for deleting a data. |
+| [downloadinfo](#downloadinfo) | Is used to find out where the data are physically located.  |
 | [ping and stat](#ping-and-stat) | Lets you know about the operability proxy. |
-| [stat_log and stat-log](#stat_log-and-stat-log) |  |
+| [stat_log and stat-log](#stat_log-and-stat-log) | Displays an information for all connected nodes. |
 | [cache](#cache) | Shows the information received from the proxy mastermind and cashing in themselves. |
 | [cache-update](#cache-update) | Makes proxy to immediately update information from mastermind, without waiting for the timeout. |
 
