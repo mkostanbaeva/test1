@@ -1,4 +1,4 @@
-# API
+#Mediastorage-proxy HTTP API
 For work, you can use the following handle:
 
 | Handle | Description |
@@ -25,7 +25,7 @@ The host for writing operation (the upload, delete, downloadinfo handle) - `stor
 ##upload 
 ###Description
 Handle is used to upload a data. Used as follows - *hostname:port/upload-$namespace/$filename* and a data will be transmist by post. Where are: 
-* *$namespace* - the name of your namespase,
+* *$namespace* - the name of your namespace,
 * *$filename* -  name of the key for your data.
 When you specify the namespace will be issued Authorization header, which should not forget to indicate -
 [more here](http://en.wikipedia.org/wiki/Basic_access_authentication). <br/>
