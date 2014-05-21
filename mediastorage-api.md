@@ -31,10 +31,11 @@ When you specify the namespace will be issued Authorization header, which should
 [more here](http://en.wikipedia.org/wiki/Basic_access_authentication). <br/>
 The proxy has no restrictions on the size of upload files (it uploads by pieces, as they come to the socket).
 
-Parameters of request (transmitted by GET):
+Parameters of request:
 * `offset` - an offset with which data should be written, you can use to overwrite the piece of file;
 * `embed` or `embed_timestamp` and `timestamp` - the `embed` flag is used to store meta-information together with a data; from meta-information supported now only `timestamp`.
 
+A data is transmitted request post, and options are transmitted by parameters in url.
 ###HTTP response codes
 Handle can return the following error codes - 200, 400, 401, 507, 5xx. [More here.](#http-status-codes)
 
