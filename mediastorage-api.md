@@ -31,7 +31,7 @@ When you specify the namespace will be issued Authorization header, which should
 [more here](http://en.wikipedia.org/wiki/Basic_access_authentication). <br/>
 The proxy has no restrictions on the size of upload files (it uploads by pieces, as they come to the socket).
 
-Additional arguments (transmitted by GET):
+Parameters of request (transmitted by GET):
 * `offset` - an offset with which data should be written, you can use to overwrite the piece of file;
 * `embed` or `embed_timestamp` and `timestamp` - the `embed` flag is used to store meta-information together with a data; from meta-information supported now only `timestamp`.
 
@@ -76,7 +76,7 @@ Should pay attention to:
 ###Description 
 Handle is used for reading a data. Used as follows - *hostname:port/get-$namespace/$group/$filename*, where is *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. For namespace with a static group - *hostname:port/get-$namespace/$filename*.
 
-Additional arguments (transmitted by GET):
+Parameters of request (transmitted by GET):
 * `offset` - an offset with which data should be reading;
 * `size` - a size of the data chunk to be read;
 * `embed` and `embed_timestamp` - flag is used to indicate that the data was written with the meta-information (now is a legacy -  proxy may determine this fact for all new written data).
@@ -274,3 +274,11 @@ Request:
 ```
 curl "http://localhost:81/cache-update?with-namespaces"
 ```
+##HTTP response codes
+200 - Ok (response will be similar to that in Example), <br/>
+400 - the request cannot be fulfilled due to bad syntax, <br/>
+401 - forgot to specify a title for the authorization, <br/>
+404 - no data was found for this key, <br/>
+507 - in your namespaces is not enough space for writing this size, <br/>
+5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
+
