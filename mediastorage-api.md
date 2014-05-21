@@ -78,9 +78,7 @@ Parameters of request (transmitted by GET):
 * `embed` and `embed_timestamp` - flag is used to indicate that the data was written with the meta-information (now is a legacy -  proxy may determine this fact for all new written data).
 
 ###HTTP response codes
-200 - Ok, <br/>
-404 - no data was found for this key, <br/>
-5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
+Handle can return the following error codes - 200, 404, 5xx. [More here.](#HTTP-status-codes)
 
 ###Example
 Request: 
@@ -100,9 +98,7 @@ Handle is used for deleting a data. Used as follows - *hostname:port/delete-$nam
 For namespace with a static group - *hostname:port/delete-$namespace/$filename*.
 
 ###HTTP response codes
-200 - Ok, <br/>
-404 - no data was found for this key, <br/>
-5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
+Handle can return the following error codes - 200, 404, 5xx. [More here.](#HTTP-status-codes)
 
 ###Example
 Request: 
@@ -115,9 +111,7 @@ curl -H "Authorization: Basic ZGVmYXVsdDoxMjM=" "http://storage-int.mds.yandex.n
 Handle is used to find out where the data are physically located. Used as follows - *hostname:port/downloadinfo-$namespace/$group/$filename*, where is  *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. For namespace with a static group - *hostname:port/downloadinfo-$namespace/$filename*.
 
 ###HTTP response codes
-200 - Ok, <br/>
-404 - no data was found for this key, <br/>
-5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
+Handle can return the following error codes - 200, 404, 5xx. [More here.](#HTTP-status-codes)
 
 ###Example
 Request: 
@@ -134,16 +128,14 @@ Answer:
 Lets you know about the operability proxy. Used as follows - *hostname:port/ping* or *hostname:port/stat*. 
 
 ###HTTP response codes
-200 - Ok, <br/>
-5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
+Handle can return the following error codes - 200, 5xx. [More here.](#HTTP-status-codes)
 
 ##stat_log and stat-log
 ###Description
 Displays an information for all connected nodes. Used as follows - *:port/stat_log* or *hostname:port/stat-log*.
 
 ###HTTP response codes
-200 - Ok, <br/>
-5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
+Handle can return the following error codes - 200, 5xx. [More here.](#HTTP-status-codes)
 
 ###Example
 ```
@@ -169,8 +161,7 @@ The types of caches are:
 * *namespaces-settings* - a configuration namespaces, which is working proxy now.
 
 ###HTTP response codes
-200 - Ok, <br/>
-5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
+Handle can return the following error codes - 200, 5xx. [More here.](#HTTP-status-codes)
 
 ###Example
 Request: 
@@ -262,8 +253,7 @@ Answer:
 Makes proxy to immediately update information from mastermind, without waiting for the timeout. If you pass an argument with-namespaces, then the proxy also will be update information about the namespaces (just as it does at the start).
 
 ###HTTP response codes
-200 - Ok, <br/>
-5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
+Handle can return the following error codes - 200, 5xx. [More here.](#HTTP-status-codes)
 
 ###Example
 Request: 
