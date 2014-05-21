@@ -36,7 +36,7 @@ Parameters of request (transmitted by GET):
 * `embed` or `embed_timestamp` and `timestamp` - the `embed` flag is used to store meta-information together with a data; from meta-information supported now only `timestamp`.
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 400, 401, 507, 5xx. [More here.](#HTTP-status-codes)
+Handle can return the following error codes - 200, 400, 401, 507, 5xx. [More here.](#http-status-codes)
 
 ###Example
 Request: 
@@ -78,7 +78,7 @@ Parameters of request (transmitted by GET):
 * `embed` and `embed_timestamp` - flag is used to indicate that the data was written with the meta-information (now is a legacy -  proxy may determine this fact for all new written data).
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 404, 5xx. [More here.](#HTTP-status-codes)
+Handle can return the following error codes - 200, 404, 5xx. [More here.](#http-status-codes)
 
 ###Example
 Request: 
@@ -98,7 +98,7 @@ Handle is used for deleting a data. Used as follows - *hostname:port/delete-$nam
 For namespace with a static group - *hostname:port/delete-$namespace/$filename*.
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 404, 5xx. [More here.](#HTTP-status-codes)
+Handle can return the following error codes - 200, 404, 5xx. [More here.](#http-status-codes)
 
 ###Example
 Request: 
@@ -111,7 +111,7 @@ curl -H "Authorization: Basic ZGVmYXVsdDoxMjM=" "http://storage-int.mds.yandex.n
 Handle is used to find out where the data are physically located. Used as follows - *hostname:port/downloadinfo-$namespace/$group/$filename*, where is  *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. For namespace with a static group - *hostname:port/downloadinfo-$namespace/$filename*.
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 404, 5xx. [More here.](#HTTP-status-codes)
+Handle can return the following error codes - 200, 404, 5xx. [More here.](#http-status-codes)
 
 ###Example
 Request: 
@@ -128,14 +128,14 @@ Answer:
 Lets you know about the operability proxy. Used as follows - *hostname:port/ping* or *hostname:port/stat*. 
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 5xx. [More here.](#HTTP-status-codes)
+Handle can return the following error codes - 200, 5xx. [More here.](#http-status-codes)
 
 ##stat_log and stat-log
 ###Description
 Displays an information for all connected nodes. Used as follows - *:port/stat_log* or *hostname:port/stat-log*.
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 5xx. [More here.](#HTTP-status-codes)
+Handle can return the following error codes - 200, 5xx. [More here.](#http-status-codes)
 
 ###Example
 ```
@@ -161,7 +161,7 @@ The types of caches are:
 * *namespaces-settings* - a configuration namespaces, which is working proxy now.
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 5xx. [More here.](#HTTP-status-codes)
+Handle can return the following error codes - 200, 5xx. [More here.](#http-status-codes)
 
 ###Example
 Request: 
@@ -253,7 +253,7 @@ Answer:
 Makes proxy to immediately update information from mastermind, without waiting for the timeout. If you pass an argument with-namespaces, then the proxy also will be update information about the namespaces (just as it does at the start).
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 5xx. [More here.](#HTTP-status-codes)
+Handle can return the following error codes - 200, 5xx. [More here.](#http-status-codes)
 
 ###Example
 Request: 
