@@ -36,7 +36,7 @@ Parameters of request (transmitted by GET):
 * `embed` or `embed_timestamp` and `timestamp` - the `embed` flag is used to store meta-information together with a data; from meta-information supported now only `timestamp`.
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 400, 401, 507, 5xx. [More here.](#HTTP status codes)
+Handle can return the following error codes - 200, 400, 401, 507, 5xx. [More here.](#HTTP-status-codes)
 
 ###Example
 Request: 
