@@ -58,16 +58,19 @@ Answer:
 </post>
 ```
 Should pay attention to:
-* at the `post` tag attribute `key="221/file1"` - the key with which you can work with written data (read and delete).  The key will be equal $filename when written in namespace with a static group. Generally, the key is made so: /$group/$ filename, where $group - any of the groups in which the data were written;
-* at the `post` tag attribute `obj` - generated key for the data $namespace.$filename);
-* at the `post` tag attribute `id` - sha512(obj) - elliptics saved a data under this key;
-* at the `post` tag attribute `groups` - a number of groups in which have tried to write;
-* at the `post` tag attribute `size`-  a data size;
-* at the `complete` tag attribute `addr` - an address of the node where the data were written;
-* at the `complete` tag attribute `path` - a path to the data;
-* at the `complete` tag attribute `group` - a group number (can be used as part of the key to read/delete operations);
-* at the `complete` tag attribute `status` - a status of the operation (0 - ok);
-* the `written` tag - a number of groups that succeeded to write.
+
+| Tag | Attribute | Description |
+|-----------|-------------|-------------|
+| post | key="221/file1" | The key with which you can work with written data (read and delete).  The key will be equal $filename when written in namespace with a static group. Generally, the key is made so: /$group/$ filename, where $group - any of the groups in which the data were written. |
+| post | obj | Generated key for the data $namespace.$filename). |
+| post | id | Sha512(obj) - elliptics saved a data under this key. |
+| post | groups | A number of groups in which have tried to write. |
+| post | size | A data size. |
+| complete | addr | An address of the node where the data were written. |
+| complete | path | A path to the data. |
+| complete | group | A group number (can be used as part of the key to read/delete operations). |
+| complete | status | A status of the operation (0 - ok). |
+| written |  | A number of groups that succeeded to write.|
 
 ##get
 ###Description 
