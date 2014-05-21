@@ -36,11 +36,7 @@ Parameters of request (transmitted by GET):
 * `embed` or `embed_timestamp` and `timestamp` - the `embed` flag is used to store meta-information together with a data; from meta-information supported now only `timestamp`.
 
 ###HTTP response codes
-200 - Ok (response will be similar to that in Example), <br/>
-400 - the request cannot be fulfilled due to bad syntax, <br/>
-401 - forgot to specify a title for the authorization <br/>
-507 - in your namespaces is not enough space for writing this size <br/>
-5xx - the server failed to fulfill an apparently valid request, we already know about it and fix it.
+Handle can return the following error codes - 200, 400, 401, 507, 5xx. [More here.](#HTTP response codes)
 
 ###Example
 Request: 
