@@ -1,6 +1,35 @@
 #Mediastorage-proxy сonfiguration 
 
-Configuration file consists of configurations TheVoid and mediastorage-proxy settings. It has JSON format. 
+Below is shown the general scheme of relationship the proxy with other components.
+![general scheme of work](general_scheme.png)
+Running Mediastorage-proxy as follows:
+1. start proxy,
+2. start *libmastermind*,
+3. *libmastermind* load cache,
+4. *libmastermind* connect to Mastermind in Cocaine,
+5. gets namespace sitting from Mastermind and send it to proxy,
+6. proxy load.
+
+The scheme of work Mediastorage-proxy with the client.
+![scheme of work](work_scheme.png)
+
+The scheme of work at upload operation.
+
+1. The client transmits to proxy the following parameters - key, value and namespace.
+2. Proxy transmits to *libmastermind* namespace, size.
+3. *Libmastermind* transmits to proxy a value of couple.
+4. Proxy upload the data to Elliptics in accord a value of couple.
+5. Proxy send to client a value of couple (if operation was successful) or an error message (if operation was successful and delete data in those groups, in which all the same managed to upload). 
+
+The scheme of work at operations read and delete a data.
+1. The client transmits to proxy the following parameters - key name, namespace and couple with the number of group.
+2. Proxy transmits to *libmastermind* a value of couple with the number of group.
+3. *Libmastermind* transmits to proxy a value of couple.
+4. Proxy delete or read the data to Elliptics in accord a value of couple.
+5. Proxy send to client a data in read operation or a message on the status of delete operation.
+
+Configuration file consists of configurations TheVoid and mediastorage-proxy settings. It has JSON format.
+
 
 ##TheVoid settings
 ```json
