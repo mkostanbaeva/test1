@@ -1,7 +1,9 @@
 #Mediastorage-proxy сonfiguration 
 
 Below is shown the general scheme of relationship the proxy with other components.
+
 ![general scheme of work](general_scheme.png)
+
 Running Mediastorage-proxy as follows:
 1. start proxy,
 2. start *libmastermind*,
@@ -11,6 +13,7 @@ Running Mediastorage-proxy as follows:
 6. proxy load.
 
 The scheme of work Mediastorage-proxy with the client.
+
 ![scheme of work](work_scheme.png)
 
 The scheme of work at upload operation.
