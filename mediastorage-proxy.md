@@ -5,6 +5,7 @@ Below is shown the general scheme of relationship the proxy with other component
 ![general scheme of work](general_scheme.png)
 
 Running Mediastorage-proxy as follows:
+
 1. start proxy,
 2. start *libmastermind*,
 3. *libmastermind* load cache,
@@ -25,6 +26,7 @@ The scheme of work at upload operation.
 5. Proxy send to client a value of couple (if operation was successful) or an error message (if operation was successful and delete data in those groups, in which all the same managed to upload). 
 
 The scheme of work at operations read and delete a data.
+
 1. The client transmits to proxy the following parameters - key name, namespace and couple with the number of group.
 2. Proxy transmits to *libmastermind* a value of couple with the number of group.
 3. *Libmastermind* transmits to proxy a value of couple.
