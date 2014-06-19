@@ -1,6 +1,6 @@
 #Mediastorage-proxy сonfiguration 
 
-The general scheme of relationship the proxy with other components .
+The general scheme of relationship the proxy with other components is shown below.
 
 ![general scheme of work](general_scheme.png)
 
@@ -25,7 +25,7 @@ The scheme of work at upload operation.
 4. Proxy upload the data to Elliptics in accord a value of couple.
 5. Proxy send to client a value of couple (if operation was successful) or an error message (if operation was successful and delete data in those groups, in which all the same managed to upload). 
 
-The scheme of work at operations read and delete a data.
+The scheme of work at read/delete a data operations.
 
 1. The client transmits to proxy the following parameters - key name, namespace and couple with the number of group.
 2. Proxy transmits to *libmastermind* a value of couple with the number of group.
@@ -33,8 +33,7 @@ The scheme of work at operations read and delete a data.
 4. Proxy delete or read the data to Elliptics in accord a value of couple.
 5. Proxy send to client a data in read operation or a message on the status of delete operation.
 
-Configuration file consists of configurations TheVoid and mediastorage-proxy settings. It has JSON format.
-
+Proxy provides HTTP API to the client with the help TheVoid. Access to Elliptics gives by using libmastermind and client interface of Elliptics. Configuring proxy is logically divided to configuring TheVoid and installing other configuration parametrs. The configuration file has JSON format.
 
 ##TheVoid settings
 ```json
