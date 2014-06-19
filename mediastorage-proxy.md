@@ -1,6 +1,6 @@
 #Mediastorage-proxy сonfiguration 
 
-Below is shown the general scheme of relationship the proxy with other components.
+The general scheme of relationship the proxy with other components .
 
 ![general scheme of work](general_scheme.png)
 
