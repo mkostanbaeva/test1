@@ -30,9 +30,9 @@ Where are:
 |-----------|-------------|
 | `endpoints` | The sockets that proxy listens. Unix and tcp sockets can be used. |
 | `backlog` | Size of queue for each socket. |
-| `safe_mode` | This option catches all uncaught errors and return 500 code of error, if the value this parameter is TRUE. |
+| `safe_mode` | Proxy with this option catches all uncaught errors and return 500 code of error, if the value this parameter is TRUE. |
 | `threads` | Number of threads to handle connection. |
-| `buffer_size` | Buffer size of matching packages. |
+| `buffer_size` | Buffer size of packages. |
 | `monitor-port` | Port value for monitoring proxy. |
 ##Mediastorage-proxy settings
 ```json
@@ -83,12 +83,12 @@ Where are:
 |---------------|-------------|
 | `elliptics-log` </br> `proxy-log`  </br> `mastermind-log` | There are Elliptics client, proxy and *libmastermind* logs. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
 | `timeouts`| The timeouts settings.  Allow you to override at runtime the previous values for timeouts.</br> *`wait`* - a time to wait for the operation complete,</br>  *`check`*- sets the wait for a response from the host. If it stops responding then rebuild the routing table. </br>|
-| `cfg-flags` | Configuration fldoiags of the Elliptics client. |
+| `cfg-flags` | Configuration flags of the Elliptics client. |
 | `remotes` | The nodes of Elliptics storage. A string address in the format - “host:port:family". |
 | `elliptics-threads` | Configuration of the Elliptics client threads. The following parameters are used to configure the client - *`io-thread-num`* -  a number of IO threads in processing pool,  *`net-thread-num`* - a number of threads in network processing pool. |
 | `mastermind` | Configuration for the *libmastermind*. Allows to communicate the mediastorage-proxy with Mastermind in Cocaine. Mastermind calculates the load on the nodes.  It lets say what the nodes are most loaded and where should be the load on nodes for write operations. To configure the client are using the following parameters - *`nodes`* - paths to all the Cocaine locators that can go to Mastermind (values for a path to the cocaine-runtime and for a port where is the locator), *`group-info-update-period`* - a time after which should be updated the information (this parameter in seconds). |
 | `die-limit` | Sets how many live connections between Mediastorage-proxy and Elliptics that to assume that the system is operable. But it is impossible make a record if the the system contains fewer connections because it works in read-only mode. |
-| `eblob-style-path` | If the value is 1 that's eblob, else - if the value 0. |
+| `eblob-style-path` | Allows set to use style of path like eblob. If the value is 1 that's eblob, else - if the value 0. |
 | `base-port` | The value for Dnet base port. Style specifying to a file path: if the value "1" - eblob, else - filesystem. |
 | `chunk-size` | A size of a single piece of data to be written or to be read. The size is specified in MB. It is a required parameter. |
 
