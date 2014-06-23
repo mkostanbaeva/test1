@@ -43,7 +43,7 @@ The overall structure of the configuration file is as follows:
 ```
 Where are:
 * `thevoid` section - TheVoid sittings;
-* `application` section - щерук
+* `application` section - other configuration parametrs.
 
 ##TheVoid settings
 ```json
