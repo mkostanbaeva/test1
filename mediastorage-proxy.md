@@ -88,8 +88,8 @@ Where are:
 | `elliptics-threads` | Configuration of the Elliptics client threads. The following parameters are used to configure the client - *`io-thread-num`* -  a number of IO threads in processing pool,  *`net-thread-num`* - a number of threads in network processing pool. |
 | `mastermind` | Configuration for the *libmastermind*. Allows to communicate the mediastorage-proxy with Mastermind in Cocaine. Mastermind calculates the load on the nodes.  It lets say what the nodes are most loaded and where should be the load on nodes for write operations. To configure the client are using the following parameters - *`nodes`* - paths to all the Cocaine locators that can go to Mastermind (values for a path to the cocaine-runtime and for a port where is the locator), *`group-info-update-period`* - a time after which should be updated the information (this parameter in seconds). |
 | `die-limit` | Sets how many live connections between Mediastorage-proxy and Elliptics that to assume that the system is operable. But it is impossible make a record if the the system contains fewer connections because it works in read-only mode. |
-| `eblob-style-path` | Allows set to use style of path like eblob. If the value is 1 that's eblob, else - if the value 0. |
-| `base-port` | The value for Dnet base port. Style specifying to a file path: if the value "1" - eblob, else - filesystem. |
+| `eblob-style-path` | Allows set to use style of path like eblob. If the value is `TRUE` that's eblob, else - filesystem. |
+| `base-port` | The value for Dnet base port. |
 | `chunk-size` | A size of a single piece of data to be written or to be read. The size is specified in MB. It is a required parameter. |
 
 ##Startup order the proxy
@@ -97,14 +97,14 @@ The general scheme of relationship the proxy with other components is shown belo
 
 ![general scheme of work](general_scheme.png)
 
-Running Mediastorage-proxy as follows:
+Mediastorage-proxy runs as follows:
 
-1. start proxy,
-2. start *libmastermind*,
-3. *libmastermind* load cache,
-4. *libmastermind* connect to Mastermind in Cocaine,
-5. gets namespace sitting from Mastermind and send it to proxy,
-6. proxy load.
+1. starts proxy,
+2. starts *libmastermind*,
+3. *libmastermind* loads cache,
+4. *libmastermind* connects to Mastermind,
+5. gets namespace setting from Mastermind and sends it to proxy,
+6. proxy is ready to work.
 
 The scheme of work Mediastorage-proxy with the client.
 
