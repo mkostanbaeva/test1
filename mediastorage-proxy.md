@@ -34,6 +34,13 @@ The scheme of work at read/delete a data operations.
 5. Proxy send to client a data in read operation or a message on the status of delete operation.
 
 Proxy provides HTTP API to the client with the help TheVoid. Access to Elliptics gives by using libmastermind and client interface of Elliptics. Configuring proxy is logically divided to configuring TheVoid and installing other configuration parametrs. The configuration file has JSON format.
+The overall structure of the configuration file is as follows:
+```
+{
+"thevoid":{},
+"application":{}
+}
+```
 
 ##TheVoid settings
 ```json
