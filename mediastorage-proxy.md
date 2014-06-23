@@ -81,7 +81,7 @@ Where are:
 ```
 | Parameter | Description |
 |---------------|-------------|
-| `elliptics-log` </br> `proxy-log`  </br> `mastermind-log` | There are Elliptics client, proxy and *libmastermind* logs. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
+| `elliptics-log`, `proxy-log`, `mastermind-log` | There are Elliptics client, proxy and *libmastermind* logs. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
 | `timeouts`| The timeouts settings.  Allow you to override at runtime the previous values for timeouts.</br> *`wait`* - a time to wait for the operation complete,</br>  *`check`*- sets the wait for a response from the host. If it stops responding then rebuild the routing table. </br>|
 | `cfg-flags` | Configuration flags of the Elliptics client. |
 | `remotes` | The nodes of Elliptics storage. A string address in the format - “host:port:family". |
