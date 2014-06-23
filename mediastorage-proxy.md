@@ -41,6 +41,8 @@ The overall structure of the configuration file is as follows:
 "application":{}
 }
 ```
+Where are:
+* `thevoid` section - 
 
 ##TheVoid settings
 ```json
