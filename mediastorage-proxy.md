@@ -93,10 +93,6 @@ Where are:
 | `chunk-size` | A size of a single piece of data to be written or to be read. The size is specified in MB. It is a required parameter. |
 
 ##Startup order the proxy
-The general scheme of relationship the proxy with other components is shown below.
-
-![general scheme of work](general_scheme.png)
-
 Mediastorage-proxy runs as follows:
 
 1. starts proxy,
