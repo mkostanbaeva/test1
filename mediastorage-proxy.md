@@ -104,7 +104,7 @@ Mediastorage-proxy runs as follows:
 
 The scheme of work Mediastorage-proxy with the client.
 
-![scheme of work](work_scheme2.png)
+![scheme of work](work_scheme3.png)
 
 The scheme of work at upload operation.
 
