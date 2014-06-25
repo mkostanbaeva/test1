@@ -1,14 +1,14 @@
-#SWARM 
+﻿#SWARM&TheVoid
 This is a set of containers - http_headers, http_request, http_response, Url, url_query. There are containers with a set of fields (exept URL), in case http_headers container which consisting of a list of key - value. 
 
 URL - a special class that represents the API to work with links. It uses for working the libcurl library. Every time when called a seturl method or constructor, it saved an original `cURL` at the internal structure in a special field. On the first request produced lazy initialization  to any of the fields except this `cURL` (other than the original field). That is, called a special methods from libcurl to parse which came the line, to check its validity and then put in the fields. When calling to_string method occurs a lazy parsing a URL (if you haven't done so already), then use libcurl methods after what made generation from units. 
-Parsing in libcurl is a very strict, it does not allow to be any deviation. So, if in url is something wrong, it is considered invalid. The fromuserinput method was made for url, which was entered by the user or from an external application.It verifies the url and try to make valid. If unable to do it, returns FALSE. 
+Parsing in libcurl is a very strict, it does not allow to be any deviation. So, if in url is something wrong, it is considered invalid. The fromuserinput method was made for url, which was entered by the user or from an external application. It verifies the url and try to make valid. If unable to do it, returns FALSE. 
 
 SWARM_XML library
 
 urlfinder
 
-The goal of this class is get the input xml and return a list of url.The goal of this class is get the input xml and return a list of url. Currently used in xmlpath. It uses a special api to parse html documents. It searches for all the tags that return url and adds its contents to the list of url (without any manipulation). 
+The goal of this class is get the input xml and return a list of url. The goal of this class is get the input xml and return a list of url. Currently used in xmlpath. It uses a special API to parse html documents. It searches for all the tags that return url and adds its contents to the list of url (without any manipulation). 
 urlfetcher is a wrapper over liburl with the properties:
 @eventloop - a special object that allows you to manage and monitor various events associated with timers and input-output devices. In particular, there is a class eventloop, which is an abstraction over @eventloop (based boost_asio and libev). It should create a socket with specified types of network domain, protocol (to be able to close), listen to the events of the socket - read operations, write operations, request call timer. Libev - more or less canonical library, on which basis was tested URL. From libev library uses a timer, async, ev_ill. Whenever the url invokes the command, it wants to listen to these events. It checks whether created for this socket ev_ill, if not - it creates. If you ask it to kill - it kills.
 
