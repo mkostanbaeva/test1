@@ -1,6 +1,11 @@
 #Mediastorage-proxy сonfiguration 
 
-Proxy provides HTTP API to the client with the help TheVoid. Access to Elliptics gives by using libmastermind and client interface of Elliptics. Configuring proxy is logically divided to configuring TheVoid and installing other configuration parametrs. The configuration file has JSON format.
+Proxy provides HTTP API to the client with the help TheVoid. Access to Elliptics gives by using libmastermind and client interface of Elliptics. Configuring proxy is logically divided to configuring TheVoid and installing other configuration parametrs.
+The scheme of work Mediastorage-proxy with the client.
+
+![scheme of work](work_scheme3.png)
+
+The configuration file has JSON format.
 The overall structure of the configuration file is as follows:
 ```
 {
@@ -102,9 +107,6 @@ Mediastorage-proxy runs as follows:
 5. gets namespace setting from Mastermind and sends it to proxy,
 6. proxy is ready to work.
 
-The scheme of work Mediastorage-proxy with the client.
-
-![scheme of work](work_scheme3.png)
 
 The scheme of work at upload operation.
 
