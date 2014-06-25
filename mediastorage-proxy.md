@@ -1,6 +1,7 @@
 #Mediastorage-proxy сonfiguration 
 
 Proxy provides HTTP API to the client with the help TheVoid. Access to Elliptics gives by using libmastermind and client interface of Elliptics. Configuring proxy is logically divided to configuring TheVoid and installing other configuration parametrs.
+
 The scheme of work Mediastorage-proxy with the client.
 
 ![scheme of work](work_scheme3.png)
