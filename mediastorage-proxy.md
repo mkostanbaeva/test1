@@ -1,9 +1,8 @@
 #Mediastorage-proxy сonfiguration 
 
-[TheVoid settings](#TheVoid-settings)</br>
-[Mediastorage-proxy settings](#Mediastorage-proxy-settings)
-
-[Startup order of the proxy](#Startup-order-of-the-proxy)
+* [TheVoid settings](#TheVoid-settings)
+* [Mediastorage-proxy settings](#Mediastorage-proxy-settings)
+* [Startup order of the proxy](#Startup-order-of-the-proxy)
 
 Proxy provides HTTP API to the client with the help TheVoid. Access to Elliptics provided by using libmastermind and client interface of Elliptics. Configuring proxy is logically divided to set TheVoid parametrs and other configuration parametrs. The configuration file has JSON format. The overall structure of the configuration file is as follows:
 ```
