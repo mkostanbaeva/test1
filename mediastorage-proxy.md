@@ -1,7 +1,6 @@
 #Mediastorage-proxy сonfiguration 
 
-[TheVoid settings](#TheVoid-settings)
-
+[TheVoid settings](#TheVoid-settings)</br>
 [Mediastorage-proxy settings](#Mediastorage-proxy-settings)
 
 [Startup order of the proxy](#Startup-order-of-the-proxy)
