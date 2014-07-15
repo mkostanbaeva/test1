@@ -1,4 +1,4 @@
-#Mediastorage-proxy сonfiguration 
+#Mediastorage-proxy configuration 
 
 * [TheVoid settings](#TheVoid-settings)
 * [Mediastorage-proxy settings](#Mediastorage-proxy-settings)
