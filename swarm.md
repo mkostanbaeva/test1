@@ -8,7 +8,7 @@ Parsing in libcurl is a very strict, it does not allow to be any deviation. So, 
 
 ##SWARM_XML library
 
-The goal of this class is get the input xml and return a list of url. The goal of this class is get the input xml and return a list of url. Currently used in xmlpath. It uses a special API to parse html documents. It searches for all the tags that return url and adds its contents to the list of url (without any manipulation). 
+The goal of this class is get the input xml and return a list of url. Currently used in xmlpath. It uses a special API to parse html documents. It searches for all the tags that return url and adds its contents to the list of url (without any manipulation). 
 
 ###API features
 urlfetcher is a wrapper over liburl with the properties:
