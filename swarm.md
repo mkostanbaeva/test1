@@ -1,13 +1,16 @@
 ﻿#SWARM&TheVoid
 This is a set of containers - http_headers, http_request, http_response, Url, url_query. There are containers with a set of fields (exept URL), in case http_headers container which consisting of a list of key - value. 
 
+![scheme of work](swarm+thevoid.png)
 
 URL - a special class that represents the API to work with links. It uses for working the libcurl library. Every time when called a seturl method or constructor, it saved an original `cURL` at the internal structure in a special field. On the first request produced lazy initialization  to any of the fields except this `cURL` (other than the original field). That is, called a special methods from libcurl to parse which came the line, to check its validity and then put in the fields. When calling to_string method occurs a lazy parsing a URL (if you haven't done so already), then use libcurl methods after what made generation from units. 
 Parsing in libcurl is a very strict, it does not allow to be any deviation. So, if in url is something wrong, it is considered invalid. The fromuserinput method was made for url, which was entered by the user or from an external application. It verifies the url and try to make valid. If unable to do it, returns FALSE. 
 
-#SWARM_XML library
+##SWARM_XML library
 
 The goal of this class is get the input xml and return a list of url. The goal of this class is get the input xml and return a list of url. Currently used in xmlpath. It uses a special API to parse html documents. It searches for all the tags that return url and adds its contents to the list of url (without any manipulation). 
+
+###API features
 urlfetcher is a wrapper over liburl with the properties:
 @eventloop - a special object that allows you to manage and monitor various events associated with timers and input-output devices. In particular, there is a class eventloop, which is an abstraction over @eventloop (based boost_asio and libev). It should create a socket with specified types of network domain, protocol (to be able to close), listen to the events of the socket - read operations, write operations, request call timer. Libev - more or less canonical library, on which basis was tested URL. From libev library uses a timer, async, ev_ill. Whenever the url invokes the command, it wants to listen to these events. It checks whether created for this socket ev_ill, if not - it creates. If you ask it to kill - it kills.
 
@@ -19,7 +22,7 @@ Host- `cURL` it himself never calls, but is necessary for reasons based on the `
 
 ev_eventloop timer uses when requesting evtimer, when requesting to post event is used ev-async + special queue of callbacks. When a thread of the stream we want to call the new method then blocked list of callbacks. Then variant - a new event, and then write the log, and then tell it to async something do. Then it will call evlibev special callback in its stream that will run through all the events and all will be called in turn.
 
-##Especially the use of third-party libraries
+###Especially the use of third-party libraries
 
 Boost_asio developers did not try to cross to `cURL`. The first problem - if you take the old version of `cURL`, there `cURL` could not ask eventloop create its socket or kill the socket, it has always created his avd and it passed. Boost library can not work with the avd and just allow to work with it, the library requires that owned it. Therefore boosteventlop has to create a copy of that the avd and to work with her. It retains all the properties of the parent, except that `cURL` does not close the socket for it. Need to close both avd to closed the socket. When `cURL` is requesting to hang some event on the socket, then evenlupe need to check what we know about this awd or see it for the first time. If the first time, it should duplexes it and create a boost socket. If you know, then take out the existing sockets created a boost socket and hang it on the event to listen. In later versions, we can listen to `cURL`, there are methods to create, open socket, then we can immediately create the boost socket, and `cURL` give any AVD for which can be uniquely identified the boost socket. This greatly simplifies things. Due to this, required to check implementations the boost eventloop in both cases.
 
@@ -35,7 +38,7 @@ We need to know the error code, that the headers is ended and then can to call s
 
 End of request processing - the `cURL` has a special message queue which need to check from time to time. There may be any messages, but now stored only the completion message of the query. Depending on the message you can send a message about the status of the query to the user. After that will killed itself cURL-easy  object and carefully pull out of its cURL-multi object. So it's all consistent with the idea of `cURL` and nothing was destroyed. If you've finished processing the event. In urlfetcher have another special property - we can send many simultaneous requests. But cULR can not do it. Therefore, there is a check on the amount of active compounds - the number of simultaneous requests. And at the end, when we processed next message - it is necessary to check whether we can send the next request. For this supported the special request queue, which has not yet been able to send because there is a limit. This bypasses the trouble to work with `cURL`.
 
-#TheVoid
+##TheVoid
 
 The main work of the program is as follows. TheVoid has a special object (it names the `serv`), which contains information about a handle of the users and the server. The handle is a structure that defines a set of properties when they should be called. The handle is a structure that defines a set of properties when they should be called. And there exists a factory that constructs the object. It is engaged a request processing. Also the server monitors a listening socket that they were raised. It serves all connections included in them. TheVoid has a special method that returns some data for monitoring. 
 
