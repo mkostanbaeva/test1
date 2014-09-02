@@ -15,7 +15,8 @@
  * поле size, которое показывает о наличии данных.
 Поле `data` является командноспецифичным. У разных команд может быть разные значения поля `data` и в команды такие как read/write входит значения io_attr, ключ, io_flags, указание писать в кэш или нет, какая-то чек-сумма, и только после всего этого содержанся данные самого файла. 
 
-Протокол в Elliptics осуществлен с поддержкой мультиплексирования. То есть порядок пакетов может произвольно перемешиваться если это пакеты из разных транзакций.  Но при этом, пакеты, которые приходят в одной транзакции, имеют четкую последовательность, в котором виде должен их увидеть клиент. В одном соединение может идти много транзакций. Ответы на эти транзакции могут приходить в произвольном порядке. 
+Протокол в Elliptics осуществлен с поддержкой мультиплексирования. То есть порядок пакетов может произвольно перемешиваться если это пакеты из разных транзакций.  Но при этом, пакеты, которые приходят в одной транзакции, имеют четкую последовательность, в котором виде должен их увидеть клиент. В одном соединение может идти много транзакций. Ответы на эти транзакции могут приходить в произвольном порядке.
+
 Существует одно физическое соединение, по которому может осуществляться несколько транзакций, а сама транзакция является идентификатором.
 
 #Elliptics protocol
@@ -35,4 +36,6 @@ At first of which is the `cmd` structure. It is:
  * field `size`, which indicates the availability of data.
 A field `data` is command specific. Different commands can have different values ​​of the field `data` and command such as read/write include io_attr, key, io_flags, specify write to the cache, some kind of a check-sum, and only after all of this contains the data of the file.
 
-Elliptics protocol done with the support of multiplexing. 
+Elliptics protocol done with the support of multiplexing. That is the order of packets can arbitrarily stir if packets from different transactions. But in this case, packets that come within the same transaction, have a clearly sequence in which the client should see. In one connection may go many transactions.The answers to these transactions may come in any order.
+
+There is one physical connection wherein may be several transactions, and the transaction itself is an identifier.
