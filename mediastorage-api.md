@@ -12,16 +12,6 @@ For work, you can use the following handle:
 | [cache](#cache) | Shows the information received from the proxy mastermind and cashing in themselves. |
 | [cache-update](#cache-update) | Makes proxy to immediately update information from mastermind, without waiting for the timeout. |
 
-##hosts
-###Production
-The balancer open out for reading operation (the get handle only) - `storage.mds.yandex.net:80`.<br/>
-The internal balancer for reading operation (the get handle only) - `storage-int.mds.yandex.net:80`.<br/>
-The internal balancer for writing operation (the upload, delete, downloadinfo handle) - `storage-int.mds.yandex.net:12000`.
-
-###Testing
-The host for reading operation (the get handle only) - `storage.mdst.yandex.net:80`.<br/>
-The host for writing operation (the upload, delete, downloadinfo handle) - `storage-int.mdst.yandex.net:12000`.
-
 ##upload 
 ###Description
 Handle is used to upload a data. Used as follows - *hostname:port/upload-$namespace/$filename* and a data will be transmist by post. Where are: 
@@ -42,7 +32,7 @@ Handle can return the following error codes - 200, 400, 401, 507, 5xx. [More her
 ###Example
 Request: 
 ```
-curl -H "Authorization: Basic ZGVmYXVsdDoxMjM=" "http://storage-int.mds.yandex.net:12000/upload-default/file1" -d "data"
+curl -H "Authorization: Basic ZGVmYXVsdDoxMjM=" "http://host.example.com:12000/upload-default/file1" -d "data"
 ```
 Answer:
 ```xml
@@ -84,7 +74,7 @@ Handle can return the following error codes - 200, 404, 5xx. [More here.](#http-
 ###Example
 Request: 
 ```
-curl "http://storage.mds.yandex.net:80/get-default/221/file1"
+curl "http://host.example.com:80/get-default/221/file1"
 ```
 Answer:
 ```
@@ -104,7 +94,7 @@ Handle can return the following error codes - 200, 404, 5xx. [More here.](#http-
 ###Example
 Request: 
 ```
-curl -H "Authorization: Basic ZGVmYXVsdDoxMjM=" "http://storage-int.mds.yandex.net:12000/delete-default/221/file1"
+curl -H "Authorization: Basic ZGVmYXVsdDoxMjM=" "http://host.example.com:12000/delete-default/221/file1"
 ```
 
 ##downloadinfo
@@ -117,11 +107,11 @@ Handle can return the following error codes - 200, 404, 5xx. [More here.](#http-
 ###Example
 Request: 
 ```
-curl "http://storage-int.mds.yandex.net:12000/downloadinfo-default/221/file1"
+curl "http://host.example.com:12000/downloadinfo-default/221/file1"
 ```
 Answer:
 ```xml
-<?xml version="1.0" encoding="utf-8"?><download-info><host>elisto35f.dev.yandex.net</host><path>/8/data-0.0:3940155250:4</path><region>-1</region></download-info>
+<?xml version="1.0" encoding="utf-8"?><download-info><host>host35.dc.example.com</host><path>/8/data-0.0:3940155250:4</path><region>-1</region></download-info>
 ```
 
 ##ping and stat
