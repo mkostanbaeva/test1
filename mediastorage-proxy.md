@@ -61,9 +61,6 @@ The scheme of work Mediastorage-proxy with the client.
                         "check" : 60 
                 },
                 "cfg-flags" : 4, 
-                "remotes" : [ 
-                        "elisto24f.dev.yandex.net:1025:2"   
-                ],
                 "elliptics-threads" : {  
                         "io-thread-num" : 16, 
                         "net-thread-num" : 4  
@@ -71,7 +68,7 @@ The scheme of work Mediastorage-proxy with the client.
                 "mastermind" : { 
                         "nodes" : [    
                                 {
-                                        "host" : "indigo.dev.yandex.net",   
+                                        "host" : "host.example.com",   
                                         "port" : 10053  
                                 }
                         ],
@@ -91,7 +88,6 @@ The scheme of work Mediastorage-proxy with the client.
 | `elliptics-log`, `proxy-log`, `mastermind-log` | There are Elliptics client, proxy and *libmastermind* logs. Should be set the path to the log-file and the log level (value can be from 0 to 5). |
 | `timeouts`| The timeouts settings.  Allow you to override at runtime the previous values for timeouts.</br> *`wait`* - a time to wait for the operation complete,</br>  *`check`*- sets the wait for a response from the host. If it stops responding then rebuild the routing table. </br>|
 | `cfg-flags` | Configuration flags of the Elliptics client. |
-| `remotes` | The nodes of Elliptics storage. A string address in the format - “host:port:family". |
 | `elliptics-threads` | Configuration of the Elliptics client threads. The following parameters are used to configure the client - *`io-thread-num`* -  a number of IO threads in processing pool,  *`net-thread-num`* - a number of threads in network processing pool. |
 | `mastermind` | Configuration for the *libmastermind*. Allows to communicate the mediastorage-proxy with Mastermind in Cocaine. Mastermind calculates the load on the nodes.  It lets say what the nodes are most loaded and where should be the load on nodes for write operations. To configure the client are using the following parameters - *`nodes`* - paths to all the Cocaine locators that can go to Mastermind (values for a path to the cocaine-runtime and for a port where is the locator), *`group-info-update-period`* - a time after which should be updated the information (this parameter in seconds). |
 | `die-limit` | Sets how many live connections between Mediastorage-proxy and Elliptics that to assume that the system is operable. But it is impossible make a record if the the system contains fewer connections because it works in read-only mode. |
