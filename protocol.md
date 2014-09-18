@@ -24,6 +24,11 @@ Elliptics представляет собой сеть из серверных �
 
 #Elliptics protocol
 
+Elliptics represents a network of the server nodes in which information is stored, and the nodes that run within the client applications, they are used for remote access to the data and called the client nodes.
+
+The request-response pair is called a transaction. The request is made in one package. The answer may consist of several packets. Only when the client node receives the final package can talk about the fact that it received a complete answer, and it is the final package for the transaction. Easily keep track of the transaction by a special identifier contained in each package.
+
+
 Request in each transaction is one package. However, the server may return in response not one packet, but several, and only one packet can be final. Only when the server receives the final package can say that we got a complete answer to the transaction.
 
 A data packet  in Elliptics has a binary data structure.
