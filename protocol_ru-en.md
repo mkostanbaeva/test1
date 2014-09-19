@@ -28,20 +28,21 @@ Elliptics represents a network of the server nodes in which information is store
 
 The request-response pair is called a transaction. The request is made in one package. The answer may consist of several packets. Only when the client node receives the final package can talk about the fact that it received a complete answer, and it is the final package for the transaction. Easily keep track of the transaction by a special identifier contained in each package.
 
+The protocol supports multiplexing, that is, on one physical connection can be produced multiple transactions simultaneously. The order of the packets has a clear sequence of an one transaction, but packets from different transactions can be optionally to stir.
 
-Request in each transaction is one package. However, the server may return in response not one packet, but several, and only one packet can be final. Only when the server receives the final package can say that we got a complete answer to the transaction.
+All packages have a single structure. Fields in the structure:
 
-A data packet  in Elliptics has a binary data structure.
+| Field | Field size | Description |
+|-----------|-------------|-------------|
+| dnet_id | 64 | The key identifier. |
+| status | 4 | The result code (errno). |
+| cmd | 4 | Type of the command. |
+| backend_id | 4 | The backend which is processing  an operation. |
+| trace_id | 8 | Unique identifier for search by logs. |
+| flags | 8 | The flags of [DNET_CMD_FLAGS.] (https://github.com/reverbrain/elliptics/blob/master/include/elliptics/packet.h#L129)|
+| trans | 8 | A transaction number which unique to the client.|
+| size | 8 | Size of the data. |
+| data | size | The data. |
 
-At first of which is the `cmd` structure. It is:
- * transaction number;
- * id where was made answer;
- * number of command;
- * specific flags for this command;
- * flag dnet_flagsmore (if it is set, it means that after this packet will be something else, if it isn't set, this packet will be the last one);
- * field `size`, which indicates the availability of data.
-A field `data` is command specific. Different commands can have different values ​​of the field `data` and command such as read/write include io_attr, key, io_flags, specify write to the cache, some kind of a check-sum, and only after all of this contains the data of the file.
 
-Elliptics protocol done with the support of multiplexing. That is the order of packets can arbitrarily stir if packets from different transactions. But in this case, packets that come within the same transaction, have a clearly sequence in which the client should see. In one connection may go many transactions.The answers to these transactions may come in any order.
 
-There is one physical connection wherein may be several transactions, and the transaction itself is an identifier.
