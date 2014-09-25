@@ -1,11 +1,11 @@
 #Mediastorage-proxy HTTP API
-For work, you can use the following handle:
+API provides the next handlers:
 
 | Handle | Description |
 |-----------|-------------|
-| [upload](#upload) | Is used to upload a data. |
-| [get](#get) | Is used for reading a data.  |
-| [delete](#delete)| Is used for deleting a data. |
+| [upload](#upload) | Uploads a data to the storage. |
+| [get](#get) | Returns data the key.  |
+| [delete](#delete)| Deletes a data from the storage. |
 | [downloadinfo](#downloadinfo) | Is used to find out where the data are physically located.  |
 | [ping and stat](#ping-and-stat) | Lets you know about the operability proxy. |
 | [stat_log and stat-log](#stat_log-and-stat-log) | Displays an information for all connected nodes. |
