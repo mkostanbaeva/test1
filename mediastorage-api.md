@@ -19,10 +19,11 @@ To upload a data send POST to:
 hostname:port/upload-$namespace/$filename
 ```
 Where are: 
-* *$namespace* - the name of your namespace,
+* *$namespace* - storage namespace,
 * *$filename* -  name of the key for your data.
 When you specify the namespace will be issued Authorization header, which should not forget to indicate -
-[more here](http://en.wikipedia.org/wiki/Basic_access_authentication). <br/>
+[more here](http://en.wikipedia.org/wiki/Basic_access_authentication).
+
 The proxy has no restrictions on the size of upload files (it uploads by pieces, as they come to the socket).
 
 Parameters of request:
@@ -36,15 +37,15 @@ Handle can return the following error codes - 200, 400, 401, 507, 5xx. [More her
 ###Example
 Request: 
 ```
-curl -H "Authorization: Basic ZGVmYXVsdDoxMjM=" "http://host.example.com:12000/upload-default/file1" -d "data"
+curl -H "Authorization: <token>"=" "http://host.example.com:12000/upload-default/file1" -d "data"
 ```
 Answer:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <post obj="default.file1" id="81d8ba78474fa835aab93150230020bf94d23fc7e4c5390f6f65951210d1f254dad1a27643bd84f087ed39125b1f54a988e5b7e2f5f2d18b0218c00666dd35d1" groups="3" size="4" key="221/file1">
-<complete addr="141.8.145.55:1032" path="/srv/storage/8/data-0.0" group="223" status="0"/>
-<complete addr="141.8.145.116:1032" path="/srv/storage/8/data-0.0" group="221" status="0"/>
-<complete addr="141.8.145.119:1029" path="/srv/storage/5/data-0.0" group="225" status="0"/>
+<complete addr="198.51.100.55:1032" path="/srv/storage/8/data-0.0" group="223" status="0"/>
+<complete addr="198.51.100.116:1032" path="/srv/storage/8/data-0.0" group="221" status="0"/>
+<complete addr="198.51.100.119:1029" path="/srv/storage/5/data-0.0" group="225" status="0"/>
 <written>3</written>
 </post>
 ```
@@ -141,7 +142,7 @@ Answer:
 <?xml version="1.0" encoding="utf-8"?>
 <data>
 ...
-<stat addr="141.8.145.116:1025" id="c042ec64498b6800d061b7b30adf01f4cbefc6edce0c6db03e11f9cf08c18a2bec2f58e87bc543df5e35cf6adf5b38bab1dc06e436ea262d3369a7c4b4fae03c"><la>0.78 0.61 0.49</la><memtotal>1796394</memtotal><memfree>219f98</memfree><memcached>6686cc</memcached><storage_size>c4dc</storage_size><available_size>905c</available_size><files>320000</files><fsid>ffffffffd833998f</fsid></stat>
+<stat addr="198.51.100.116:1025" id="c042ec64498b6800d061b7b30adf01f4cbefc6edce0c6db03e11f9cf08c18a2bec2f58e87bc543df5e35cf6adf5b38bab1dc06e436ea262d3369a7c4b4fae03c"><la>0.78 0.61 0.49</la><memtotal>1796394</memtotal><memfree>219f98</memfree><memcached>6686cc</memcached><storage_size>c4dc</storage_size><available_size>905c</available_size><files>320000</files><fsid>ffffffffd833998f</fsid></stat>
 ...</data>
 ```
 
