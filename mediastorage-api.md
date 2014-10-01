@@ -6,15 +6,19 @@ API provides the next handlers:
 | [upload](#upload) | Uploads a data to the storage. |
 | [get](#get) | Returns data the key.  |
 | [delete](#delete)| Deletes a data from the storage. |
-| [downloadinfo](#downloadinfo) | Is used to find out where the data are physically located.  |
+| [downloadinfo](#downloadinfo) |Shows where the data are physically located.  |
 | [ping and stat](#ping-and-stat) | Lets you know about the operability proxy. |
-| [stat_log and stat-log](#stat_log-and-stat-log) | Displays an information for all connected nodes. |
-| [cache](#cache) | Shows the information received from the proxy mastermind and cashing in themselves. |
+| [stat_log and stat-log](#stat_log-and-stat-log) | Returns an information for all connected nodes. |
+| [cache](#cache) | Returns the information received from the proxy mastermind and cashing in themselves. |
 | [cache-update](#cache-update) | Makes proxy to immediately update information from mastermind, without waiting for the timeout. |
 
 ##upload 
 ###Description
-Handle is used to upload a data. Used as follows - *hostname:port/upload-$namespace/$filename* and a data will be transmist by post. Where are: 
+To upload a data send POST to:
+```
+hostname:port/upload-$namespace/$filename
+```
+Where are: 
 * *$namespace* - the name of your namespace,
 * *$filename* -  name of the key for your data.
 When you specify the namespace will be issued Authorization header, which should not forget to indicate -
