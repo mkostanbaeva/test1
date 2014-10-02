@@ -21,6 +21,7 @@ hostname:port/upload-$namespace/$filename
 Where are: 
 * *$namespace* - storage namespace,
 * *$filename* -  name of the key for your data.
+
 When you specify the namespace will be issued Authorization header, which should not forget to indicate -
 [more here](http://en.wikipedia.org/wiki/Basic_access_authentication).
 
@@ -30,14 +31,14 @@ Parameters of request:
 * `offset` - an offset with which data should be written, you can use to overwrite the piece of file;
 * `embed` or `embed_timestamp` and `timestamp` - the `embed` flag is used to store meta-information together with a data; from meta-information supported now only `timestamp`.
 
-A data is transmitted request post, and options are transmitted by parameters in url.
+А data should be transmitted as the request body and options should be set as query list arguments.
 ###HTTP response codes
-Handle can return the following error codes - 200, 400, 401, 507, 5xx. [More here.](#http-status-codes)
+Handle responses with 200, 400, 401, 507 and 5xx error codes. Detailed description you can find in ["HTTP status code"](#http-status-codes) topic. 
 
 ###Example
 Request: 
 ```
-curl -H "Authorization: <token>"=" "http://host.example.com:12000/upload-default/file1" -d "data"
+curl -H "Authorization: <token>" "http://host.example.com:12000/upload-default/file1" -d "data"
 ```
 Answer:
 ```xml
@@ -53,7 +54,7 @@ Should pay attention to:
 
 | Tag | Attribute | Description |
 |-----------|-------------|-------------|
-| post | key="221/file1" | The key with which you can work with written data (read and delete).  The key will be equal $filename when written in namespace with a static group. Generally, the key is made so: /$group/$ filename, where $group - any of the groups in which the data were written. |
+| post | key="221/file1" | The key with which you can work with written data (read and delete). |
 | post | obj | Generated key for the data $namespace.$filename). |
 | post | id | Sha512(obj) - elliptics saved a data under this key. |
 | post | groups | A number of groups in which have tried to write. |
@@ -66,7 +67,11 @@ Should pay attention to:
 
 ##get
 ###Description 
-Handle is used for reading a data. Used as follows - *hostname:port/get-$namespace/$group/$filename*, where is *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. For namespace with a static group - *hostname:port/get-$namespace/$filename*.
+To read a data send GET to:
+```
+hostname:port/get-$namespace/$group/$filename
+```
+Where is *$group/$filename* a value from `key` attribute `post` tag in answer from write operation. 
 
 Parameters of request (transmitted by GET):
 * `offset` - an offset with which data should be reading;
@@ -74,7 +79,7 @@ Parameters of request (transmitted by GET):
 * `embed` and `embed_timestamp` - flag is used to indicate that the data was written with the meta-information (now is a legacy -  proxy may determine this fact for all new written data).
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 404, 5xx. [More here.](#http-status-codes)
+Handle responses with 200, 404 and 5xx error codes. Detailed description you can find in ["HTTP status code"](#http-status-codes) topic.(#http-status-codes)
 
 ###Example
 Request: 
@@ -89,25 +94,32 @@ In a response are coming your data.
 
 ##delete
 ###Description 
-Handle is used for deleting a data. Used as follows - *hostname:port/delete-$namespace/$group/$filename*, where is  *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. When you specify the namespace will be issued Authorization header, which should not forget to indicate -
-[more here](http://en.wikipedia.org/wiki/Basic_access_authentication). <br/>
-For namespace with a static group - *hostname:port/delete-$namespace/$filename*.
+To delete a data send GET to:
+```
+hostname:port/delete-$namespace/$group/$filename
+```
+Where is  *$group/$filename* a value from `key` attribute `post` tag in answer from write operation. When you specify the namespace will be issued Authorization header, which should not forget to indicate -
+[more here](http://en.wikipedia.org/wiki/Basic_access_authentication). 
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 404, 5xx. [More here.](#http-status-codes)
+Handle responses with 200, 404 and 5xx error codes. Detailed description you can find in ["HTTP status code"](#http-status-codes) topic.
 
 ###Example
 Request: 
 ```
-curl -H "Authorization: Basic ZGVmYXVsdDoxMjM=" "http://host.example.com:12000/delete-default/221/file1"
+curl -H "Authorization: <token>" "http://host.example.com:12000/delete-default/221/file1"
 ```
 
 ##downloadinfo
 ###Description 
-Handle is used to find out where the data are physically located. Used as follows - *hostname:port/downloadinfo-$namespace/$group/$filename*, where is  *$group/$filename* is value from `key` attribute `post` tag in answer from write operation. For namespace with a static group - *hostname:port/downloadinfo-$namespace/$filename*.
+To show where the data are physically located send GET to: 
+```
+hostname:port/downloadinfo-$namespace/$group/$filename
+```
+Where is  *$group/$filename* a value from `key` attribute `post` tag in answer from write operation.
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 404, 5xx. [More here.](#http-status-codes)
+Handle responses with 200, 404 and 5xx error codes. Detailed description you can find in ["HTTP status code"](#http-status-codes) topic.
 
 ###Example
 Request: 
@@ -121,17 +133,31 @@ Answer:
 
 ##ping and stat
 ###Description 
-Lets you know about the operability proxy. Used as follows - *hostname:port/ping* or *hostname:port/stat*. 
+To know about the operability proxy send GET to:
+```
+hostname:port/ping
+```
+or
+```
+hostname:port/stat
+```
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 5xx. [More here.](#http-status-codes)
+Handle responses with 200 and 5xx error codes. Detailed description you can find in ["HTTP status code"](#http-status-codes) topic.
 
 ##stat_log and stat-log
 ###Description
-Displays an information for all connected nodes. Used as follows - *:port/stat_log* or *hostname:port/stat-log*.
+To display an information for all connected nodes send GET to:
+```
+:port/stat_log
+```
+or 
+```
+hostname:port/stat-log
+```
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 5xx. [More here.](#http-status-codes)
+Handle responses with 200 and 5xx error codes. Detailed description you can find in ["HTTP status code"](#http-status-codes) topic.
 
 ###Example
 ```
@@ -148,7 +174,11 @@ Answer:
 
 ##cache
 ###Description 
-Shows the information received from the proxy mastermind and cashing in themselves. Used as follows - *hostname:port/cache?$types*, where is *$types* - a types of caches that want to see (listed by &).
+To obtain a cached information that proxy (by using libmastermind) received from mastermind send GET to:
+```
+hostname:port/cache?$types
+```
+Where is *$types* - a types of caches that want to see (listed by &).
 The types of caches are:
 * *group-weight* - a list of good drops, indicating a free space (with a lag of up to a minute), a namespaces and a weights;
 * *symmetric-groups* - accordance in which one group can get a full drop;
@@ -157,7 +187,7 @@ The types of caches are:
 * *namespaces-settings* - a configuration namespaces, which is working proxy now.
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 5xx. [More here.](#http-status-codes)
+Handle responses with 200 and 5xx error codes. Detailed description you can find in ["HTTP status code"](#http-status-codes) topic.
 
 ###Example
 Request: 
@@ -249,7 +279,7 @@ Answer:
 Makes proxy to immediately update information from mastermind, without waiting for the timeout. If you pass an argument with-namespaces, then the proxy also will be update information about the namespaces (just as it does at the start).
 
 ###HTTP response codes
-Handle can return the following error codes - 200, 5xx. [More here.](#http-status-codes)
+Handle responses with 200 and 5xx error codes. Detailed description you can find in ["HTTP status code"](#http-status-codes) topic.
 
 ###Example
 Request: 
