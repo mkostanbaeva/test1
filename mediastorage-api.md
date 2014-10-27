@@ -4,7 +4,7 @@ API provides the next handlers:
 | Handle | Description |
 |-----------|-------------|
 | [upload](#upload) | Uploads a data to the storage. |
-| [get](#get) | Returns data the key.  |
+| [get](#get) | Returns data by the key.  |
 | [delete](#delete)| Deletes a data from the storage. |
 | [downloadinfo](#downloadinfo) |Shows where the data are physically located.  |
 | [ping and stat](#ping-and-stat) | Lets you know about the operability proxy. |
@@ -14,6 +14,10 @@ API provides the next handlers:
 
 ##upload 
 ###Description
+Существует два типа загрузки данных: simple и multipart upload. 
+
+multipart upload заливка сразу нескольких файлов. У multipart у каждого part есть имя и это будет с именем который надо потом будет указывать в get для того чтобы этот файл прочесть. В multipert offset нету. $filename используется для индентификации запроса. Указывается контент тайпом - multipartfromdata. для мультипарта есть ограничение по объему передаваемых данных. Мультипарт запрос обзятально должен сопровождаться контентлентом. Описывает сколько данных придет в запросе. 
+
 To upload a data send POST to:
 ```
 hostname:port/upload-$namespace/$filename
@@ -28,8 +32,9 @@ When you specify the namespace will be issued Authorization header, which should
 The proxy has no restrictions on the size of upload files (it uploads by pieces, as they come to the socket).
 
 Parameters of request:
-* `offset` - an offset with which data should be written, you can use to overwrite the piece of file;
-* `embed` or `embed_timestamp` and `timestamp` - the `embed` flag is used to store meta-information together with a data; from meta-information supported now only `timestamp`.
+* `offset` - an offset with which data should be written, you can use to overwrite the piece of file.
+
+Пользователь сам может указать в какой капл он хочет записать данные. По умолчанию эта опция отключена. Включается отдельно для неймспейсов. hostname:port/upload-$namespace/$filename?caple_id=значение (только если капл принадлежит этому неймспейсу, иначе запись не произойдет)
 
 А data should be transmitted as the request body and options should be set as query list arguments.
 ###HTTP response codes
